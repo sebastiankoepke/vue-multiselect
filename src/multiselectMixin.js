@@ -672,9 +672,9 @@ export default {
       this.isOpen = false
       /* istanbul ignore else  */
       if (this.searchable) {
-        this.$refs.search.blur()
+        if (typeof this.$refs.search !== 'undefined') this.$refs.search.blur()
       } else {
-        this.$el.blur()
+        if (typeof this.$el !== 'undefined') this.$el.blur()
       }
       if (!this.preserveSearch) this.search = ''
       this.$emit('close', this.getValue(), this.id)
